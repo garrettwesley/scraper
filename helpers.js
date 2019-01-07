@@ -2,17 +2,16 @@ const cheerio = require('cheerio')
 
 function formatData(html) {
     const $ = cheerio.load(html)
-    const rows = $('.TournamentCardContainer')
-    const tourneys = []
+    const data = $('.handlebarData').data('enrollment').available.enrollmentStatus
+    let values = {  class:           'CS 61a',
+                    enrolledCount:   data.enrolledCount,
+                    maxEnroll:       data.maxEnroll,
+                    waitlistedCount: data.waitlistedCount,
+                    maxWaitlist:     data.maxWaitlist
+                }
 
-    rows.each((i, el) => {
-        let name = $(el).children().first().children().last().children().first().text()
-        let date = $(el).children().first().children().last().children().last().text()
-        tourneys.push({ name, date })
-    })
-    return tourneys
+    return values
 }
-
 
 module.exports = {
     formatData
