@@ -4,8 +4,8 @@ provider:
   name: aws
   runtime: nodejs8.10
   environment:
-    NEXMO_API_KEY: '0885eb53'
-    NEXMO_API_SECRET: 'OY7SijGyjbHbgiER'
+    NEXMO_API_KEY: 'INSERT_API_KEY_HERE'
+    NEXMO_API_SECRET: 'INSERT_API_SECRET_HERE'
 
 functions:
   getData:
